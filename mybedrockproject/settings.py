@@ -58,7 +58,10 @@ MIDDLEWARE = [
 #     "http://localhost:3000",  # Change this to your Next.js app URL
 # ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "https://dialect-hazel.vercel.app",
+]
 
 
 ROOT_URLCONF = "mybedrockproject.urls"

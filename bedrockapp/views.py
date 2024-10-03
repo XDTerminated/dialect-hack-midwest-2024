@@ -1,19 +1,17 @@
-import os
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from mistralai import Mistral
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
 
 
+@csrf_exempt
 def call_bedrock_api(request):
-    # mistral_api_key = os.environ.get("MISTRAL_API_KEY")
     mistral_api_key = os.getenv("MISTRAL_API_KEY")
 
-    # mistral_api_key = "tTk2DGeHpx5jQj4oEjUr6gQg8cqqYeGS"
-
     if not mistral_api_key:
-        print(mistral_api_key)
         return JsonResponse(
             {"error": "MISTRAL_API_KEY not found in environment variables"}, status=500
         )
@@ -35,4 +33,6 @@ def call_bedrock_api(request):
 
     body = chat_response.choices[0].message.content
 
-    return JsonResponse({"response": body})
+    response = JsonResponse({"response": body})
+    response["Access-Control-Allow-Origin"] = "https://dialect-hazel.vercel.app"
+    return response
