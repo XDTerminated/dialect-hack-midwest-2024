@@ -7,7 +7,9 @@ load_dotenv()
 
 
 def call_bedrock_api(request):
-    mistral_api_key = os.environ.get("MISTRAL_API_KEY")
+    # mistral_api_key = os.environ.get("MISTRAL_API_KEY")
+    mistral_api_key = os.getenv("MISTRAL_API_KEY")
+
     # mistral_api_key = "tTk2DGeHpx5jQj4oEjUr6gQg8cqqYeGS"
 
     if not mistral_api_key:
