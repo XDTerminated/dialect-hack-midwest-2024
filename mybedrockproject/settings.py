@@ -57,10 +57,10 @@ MIDDLEWARE = [
 
 
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOWED_ORIGINS = [
-    "https://dialect-hazel.vercel.app",
-    "localhost:3000",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "https://dialect-hazel.vercel.app",
+#     "localhost:3000",
+# ]
 
 
 ROOT_URLCONF = "mybedrockproject.urls"
