@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "python manage.py runserver",
-    "setup": "python -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt",
-    "migrate": "python manage.py migrate",
-    "shell": "python manage.py shell"
+    "dev": "python3 manage.py runserver 8000",
+    "setup": "python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt",
+    "migrate": "python3 manage.py migrate",
+    "shell": "python3 manage.py shell"
   }
 }
