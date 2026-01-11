@@ -8,29 +8,49 @@ A universal translator platform designed to break down language barriers between
 ├── apps/
 │   ├── frontend/    # Next.js 14 frontend
 │   └── backend/     # Django REST API backend
-├── .gitignore
-└── README.md
+├── turbo.json       # Turborepo configuration
+├── pnpm-workspace.yaml
+└── package.json     # Root workspace config
 ```
+
+## Quick Start (Turborepo + pnpm)
+
+**Run both frontend and backend simultaneously:**
+```bash
+pnpm install    # Install all dependencies
+pnpm dev        # Start both apps with Turborepo
+```
+
+- Frontend: http://localhost:3000
+- Backend: http://localhost:8000
 
 ## Development
 
-### Frontend
-```bash
-cd apps/frontend
-npm install
-npm run dev
-```
-Frontend will be available at http://localhost:3000
+### Run Individual Apps
 
-### Backend
+```bash
+# Frontend only
+pnpm frontend:dev
+
+# Backend only
+pnpm backend:dev
+```
+
+### First-Time Backend Setup
+
+Before running the backend, set up Python dependencies:
 ```bash
 cd apps/backend
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-python manage.py runserver
 ```
-Backend API will be available at http://localhost:8000
+
+### Build
+
+```bash
+pnpm build      # Build all apps
+```
 
 ## Environment Variables
 
