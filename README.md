@@ -1,4 +1,54 @@
-# Welcome to Hack Midwest 2024!
+# Dialect - Universal Translator
+
+A universal translator platform designed to break down language barriers between generations, regions, and online communities.
+
+## Repository Structure
+
+```
+├── apps/
+│   ├── frontend/    # Next.js 14 frontend
+│   └── backend/     # Django REST API backend
+├── .gitignore
+└── README.md
+```
+
+## Development
+
+### Frontend
+```bash
+cd apps/frontend
+npm install
+npm run dev
+```
+Frontend will be available at http://localhost:3000
+
+### Backend
+```bash
+cd apps/backend
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+python manage.py runserver
+```
+Backend API will be available at http://localhost:8000
+
+## Environment Variables
+
+### Frontend (`apps/frontend/.env.local`)
+```
+NEXT_PUBLIC_API_URL=http://localhost:8000
+```
+
+### Backend (`apps/backend/.env`)
+```
+MISTRAL_API_KEY=your_key_here
+DJANGO_SECRET_KEY=your_secret_key_here
+DEBUG=True
+```
+
+---
+
+# Hack Midwest 2024
 <br /><br />
 
 
