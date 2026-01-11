@@ -13,7 +13,7 @@ def call_bedrock_api(request):
 
     if request.method == "OPTIONS":
         response = JsonResponse({})
-        response["Access-Control-Allow-Origin"] = "https://dialect-hazel.vercel.app"
+        response["Access-Control-Allow-Origin"] = "*"
         response["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
         response["Access-Control-Allow-Headers"] = "Content-Type"
         return response
@@ -44,7 +44,7 @@ def call_bedrock_api(request):
     body = chat_response.choices[0].message.content
 
     response = JsonResponse({"response": body})
-    response["Access-Control-Allow-Origin"] = "https://dialect-hazel.vercel.app"
+    response["Access-Control-Allow-Origin"] = "*"
     response["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
     response["Access-Control-Allow-Headers"] = "Content-Type"
     return response
