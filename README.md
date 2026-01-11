@@ -66,6 +66,35 @@ DJANGO_SECRET_KEY=your_secret_key_here
 DEBUG=True
 ```
 
+## Deployment (Vercel)
+
+This monorepo deploys as **two separate Vercel projects** from the same repository.
+
+### 1. Deploy Frontend
+
+1. Go to [vercel.com/new](https://vercel.com/new)
+2. Import this repository
+3. Set **Root Directory** to `apps/frontend`
+4. Framework will auto-detect as Next.js
+5. Add environment variable:
+   - `NEXT_PUBLIC_API_URL` = your backend Vercel URL (e.g., `https://dialect-backend.vercel.app`)
+6. Deploy
+
+### 2. Deploy Backend
+
+1. Go to [vercel.com/new](https://vercel.com/new)
+2. Import this **same repository** again
+3. Set **Root Directory** to `apps/backend`
+4. Add environment variables:
+   - `MISTRAL_API_KEY` = your Mistral API key
+   - `DJANGO_SECRET_KEY` = a secure random string
+   - `DEBUG` = `False`
+5. Deploy
+
+### After Deployment
+
+Update the frontend's `NEXT_PUBLIC_API_URL` environment variable with the actual backend URL, then redeploy the frontend.
+
 ---
 
 # Hack Midwest 2024

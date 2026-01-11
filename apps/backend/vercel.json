@@ -1,4 +1,5 @@
 {
+    "$schema": "https://openapi.vercel.sh/vercel.json",
     "builds": [
         {
             "src": "mybedrockproject/wsgi.py",
@@ -9,15 +10,6 @@
     "routes": [
         {
             "src": "/(.*)",
-            "headers": {
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-                "Access-Control-Allow-Headers": "Content-Type"
-            },
-            "dest": "mybedrockproject/wsgi.py"
-        },
-        {
-            "src": "/(.*)",
             "methods": ["OPTIONS"],
             "headers": {
                 "Access-Control-Allow-Origin": "*",
@@ -25,6 +17,15 @@
                 "Access-Control-Allow-Headers": "Content-Type"
             },
             "status": 204
+        },
+        {
+            "src": "/(.*)",
+            "headers": {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type"
+            },
+            "dest": "mybedrockproject/wsgi.py"
         }
     ]
 }
